@@ -1,0 +1,73 @@
+package com.williamfq.xhat.ui.screens.chat.viewmodel
+
+import kotlinx.coroutines.flow.StateFlow
+import com.williamfq.domain.model.ChatMessage
+import com.williamfq.xhat.ui.screens.chat.model.ChatMenuOption
+import com.williamfq.xhat.ui.screens.chat.model.ChatUiState
+
+interface ChatViewModelInterface {
+    val uiState: StateFlow<ChatUiState>
+
+    fun loadChat(chatId: String)
+    fun onMessageChange(message: String)
+    fun onSendMessage()
+    fun onAttachmentClick()
+    fun onMessageClick(message: ChatMessage)
+    fun onMessageLongPress(message: ChatMessage)
+    fun onMenuClick()
+    fun onCallClick()
+    fun onVideoCallClick()
+    fun onWalkieTalkiePressed()
+    fun onWalkieTalkieReleased()
+    fun onMenuOptionSelected(option: ChatMenuOption)
+    fun deleteMessage(messageId: String)
+    fun editMessage(messageId: String, newContent: String)
+    fun startEditing(message: ChatMessage)
+    fun cancelEditing()
+    fun updateSearchQuery(query: String)
+    fun clearSearch()
+    fun handleError(message: String, e: Exception)
+    suspend fun createMessage(content: String): ChatMessage
+    fun handleMenuOption(option: ChatMenuOption)
+    fun handleViewContact()
+    fun handleSearch()
+    fun handleAddToList()
+    fun handleFiles()
+    fun handleLinks()
+    fun handleMute()
+    fun handleMuteFor(duration: String)
+    fun handleCall()
+    fun handleVideoCall()
+    fun handleChangeWallpaper()
+    fun handleClearChat()
+    fun handleDeleteChat()
+    fun handleTemporaryMessages()
+    fun handleReport()
+    fun handleBlock()
+    fun handleExportChat()
+    fun handleCreateShortcut()
+    fun handleToggleWalkieTalkie()
+    fun handleToggleChatGPT()
+    fun handleToggleVoiceRecorder()
+    fun handleToggleCamera()
+    fun handleToggleMicrophone()
+    fun handleToggleSpeaker()
+    fun handleToggleBluetooth()
+    fun startRecording()
+    fun stopRecording()
+    fun sendVoiceMessage()
+    fun toggleRecording()
+    fun toggleMicrophone()
+    fun toggleSpeaker()
+    fun toggleCamera()
+    fun toggleBluetooth()
+    fun shareLocation()
+    fun shareGallery(uri: String)
+    fun shareContact()
+    fun shareDocument()
+    fun shareAudio()
+    fun createPoll()
+    fun shareEvent()
+    fun shareScreen()
+
+}
